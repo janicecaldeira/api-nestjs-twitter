@@ -20,7 +20,7 @@ export class AuthService {
     });
 
     if (!user) {
-      throw new NotFoundException();
+      throw new NotFoundException('user not foud');
     }
 
     const passwordValid = await bcrypt.compare(password, user.password);
