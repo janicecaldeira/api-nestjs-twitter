@@ -13,20 +13,18 @@ export class CreateTweetDto {
   @IsDate()
   updatedAt: Date;
 
-  @IsString()
-  @Length(3, 280)
-  tweets: string[];
+  @IsNumber()
+  tweets: number[];
 
-  @IsString()
-  @IsOptional()
-  User: string[];
+  @IsNumber()
+  User: number[];
 
   @IsNumber()
   @IsOptional()
   userId: number;
 
-  @IsString()
-  likes: string[];
+  @IsNumber()
+  likes: number[];
 
   @IsString()
   text: string;

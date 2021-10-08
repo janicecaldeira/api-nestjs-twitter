@@ -9,9 +9,8 @@ export class CreateLikeDto {
   @IsOptional()
   tweetId: number;
 
-  @IsString()
-  @IsOptional()
-  User: string[];
+  @IsNumber()
+  User: number[];
 
   @IsNumber()
   @IsOptional()

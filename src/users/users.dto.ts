@@ -14,15 +14,14 @@ export class CreateUserDto {
   @IsDate()
   updatedAt: Date;
 
-  @IsString()
-  @Length(3, 280)
-  tweets: string[];
+  @IsNumber()
+  tweets: number[];
 
   @IsNumber()
   follows: number[];
 
-  @IsString()
-  likes: string[];
+  @IsNumber()
+  likes: number[];
 
   @IsString()
   @Length(3, 30)
