@@ -31,9 +31,4 @@ export class UsersController {
   findMany(): Promise<User[]> {
     return this.service.findMany();
   }
-
-  @Delete(':username')
-  deleteOneUser(@Param('username') username: string): Promise<User> {
-    return this.service.deleteOneUser(username);
-  }
 }

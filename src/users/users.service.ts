@@ -47,16 +47,4 @@ export class UsersService {
 
     return user;
   }
-
-  async deleteOneUser(username: string): Promise<User> {
-    const user = await this.db.user.findUnique({
-      where: { username },
-    });
-
-    if (!user) {
-      throw new NotFoundException();
-    }
-
-    return this.db.user.delete({ where: user });
-  }
 }
