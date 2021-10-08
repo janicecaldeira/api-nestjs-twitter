@@ -6,7 +6,7 @@ import {
   IsOptional,
 } from 'class-validator';
 
-export class CreateUserDto {
+export class CreateTweetDto {
   @IsDate()
   createdAt: Date;
 
