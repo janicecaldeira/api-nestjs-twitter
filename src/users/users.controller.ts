@@ -6,6 +6,7 @@ import {
   Param,
   UseGuards,
   Put,
+  Delete,
 } from '@nestjs/common';
 import { User } from '.prisma/client';
 import { CreateUserDto, UpdateUserDto } from './users.dto';
@@ -38,5 +39,10 @@ export class UsersController {
     @Body() updateUser: UpdateUserDto,
   ): Promise<User> {
     return this.service.update(username, updateUser);
+  }
+
+  @Delete('/delete/:username')
+  deleteOne(@Param('username') username: string): Promise<User> {
+    return this.service.deleteOne(username);
   }
 }

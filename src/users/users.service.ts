@@ -56,4 +56,10 @@ export class UsersService {
       },
     });
   }
+
+  async deleteOne(username: string): Promise<User> {
+    return this.db.user.delete({
+      where: { username },
+    });
+  }
 }
