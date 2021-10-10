@@ -1,27 +1,22 @@
-import {
-  IsString,
-  Length,
-  IsDate,
-  IsNumber,
-  IsEmail,
-  IsOptional,
-} from 'class-validator';
+import { IsString, Length, IsEmail, IsOptional } from 'class-validator';
+
+import { Prisma } from '@prisma/client';
 
 export class CreateUserDto {
-  @IsDate()
+  @IsOptional()
   createdAt: Date;
 
-  @IsDate()
+  @IsOptional()
   updatedAt: Date;
 
-  @IsNumber()
-  tweets: number[];
+  @IsOptional()
+  tweets: Prisma.TweetCreateNestedManyWithoutUserInput;
 
-  @IsNumber()
-  follows: number[];
+  @IsOptional()
+  follows: Prisma.FollowCreateNestedManyWithoutUserInput;
 
-  @IsNumber()
-  likes: number[];
+  @IsOptional()
+  likes: Prisma.LikeCreateNestedManyWithoutUserInput;
 
   @IsString()
   @Length(3, 30)
@@ -46,6 +41,55 @@ export class CreateUserDto {
   @IsString()
   birth: string;
 
+  @IsString()
+  bio: string;
+}
+
+export class UpdateUserDto {
+  @IsOptional()
+  createdAt: Date;
+
+  @IsOptional()
+  updatedAt: Date;
+
+  @IsOptional()
+  tweets: Prisma.TweetCreateNestedManyWithoutUserInput;
+
+  @IsOptional()
+  follows: Prisma.FollowCreateNestedManyWithoutUserInput;
+
+  @IsOptional()
+  likes: Prisma.LikeCreateNestedManyWithoutUserInput;
+
+  @IsOptional()
+  @IsString()
+  @Length(3, 30)
+  username: string;
+
+  @IsOptional()
+  @IsEmail()
+  @IsString()
+  email: string;
+
+  @IsOptional()
+  @IsString()
+  img: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(8, 30)
+  password: string;
+
+  @IsOptional()
+  @IsString()
+  @Length(2, 50)
+  displayName: string;
+
+  @IsOptional()
+  @IsString()
+  birth: string;
+
+  @IsOptional()
   @IsString()
   bio: string;
 }

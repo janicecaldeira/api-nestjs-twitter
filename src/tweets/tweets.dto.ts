@@ -1,10 +1,4 @@
-import {
-  IsString,
-  Length,
-  IsDate,
-  IsNumber,
-  IsOptional,
-} from 'class-validator';
+import { IsString, IsDate, IsNumber, IsOptional } from 'class-validator';
 
 export class CreateTweetDto {
   @IsDate()
