@@ -6,11 +6,14 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { Tweet } from '@prisma/client';
 import { CreateTweetDto } from './tweets.dto';
 import { TweetsService } from './tweets.service';
+import { AuthGuard } from '@nestjs/passport';
 
+@UseGuards(AuthGuard('jwt'))
 @Controller('tweets')
 export class TweetsController {
   constructor(private service: TweetsService) {}
