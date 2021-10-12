@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma, Tweet, User } from '@prisma/client';
+import { Prisma, Tweet } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { CreateTweetDto } from './tweets.dto';
 
