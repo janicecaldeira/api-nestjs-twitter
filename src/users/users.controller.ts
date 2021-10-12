@@ -22,7 +22,7 @@ export class UsersController {
     return this.service.create(createUser);
   }
 
-  //@UseGuards(AuthGuard('jwt'))
+  @UseGuards(AuthGuard('jwt'))
   @Get('/findAll')
   findAll(): Promise<User[]> {
     return this.service.findAll();

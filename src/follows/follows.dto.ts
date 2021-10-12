@@ -1,14 +1,9 @@
-import { IsString, IsNumber, IsOptional } from 'class-validator';
+import { IsOptional, IsNotEmpty } from 'class-validator';
 
 export class CreateFollowDto {
-  @IsString()
-  @IsOptional()
-  User: string[];
-
-  @IsNumber()
   @IsOptional()
   userId: number;
 
-  @IsNumber()
+  @IsNotEmpty()
   followedId: number;
 }

@@ -1,6 +1,10 @@
-import { IsString, Length, IsEmail, IsOptional } from 'class-validator';
-
-import { Prisma } from '@prisma/client';
+import {
+  IsString,
+  Length,
+  IsEmail,
+  IsOptional,
+  IsNotEmpty,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsOptional()
@@ -9,19 +13,12 @@ export class CreateUserDto {
   @IsOptional()
   updatedAt: Date;
 
-  @IsOptional()
-  tweets: Prisma.TweetCreateNestedManyWithoutUserInput;
-
-  @IsOptional()
-  follows: Prisma.FollowCreateNestedManyWithoutUserInput;
-
-  @IsOptional()
-  likes: Prisma.LikeCreateNestedManyWithoutUserInput;
-
+  @IsNotEmpty()
   @IsString()
   @Length(3, 30)
   username: string;
 
+  @IsNotEmpty()
   @IsEmail()
   @IsString()
   email: string;
@@ -30,17 +27,21 @@ export class CreateUserDto {
   @IsString()
   img: string;
 
+  @IsNotEmpty()
   @IsString()
   @Length(8, 30)
   password: string;
 
+  @IsNotEmpty()
   @IsString()
   @Length(2, 50)
   displayName: string;
 
+  @IsNotEmpty()
   @IsString()
   birth: string;
 
+  @IsNotEmpty()
   @IsString()
   bio: string;
 }
@@ -51,15 +52,6 @@ export class UpdateUserDto {
 
   @IsOptional()
   updatedAt: Date;
-
-  @IsOptional()
-  tweets: Prisma.TweetCreateNestedManyWithoutUserInput;
-
-  @IsOptional()
-  follows: Prisma.FollowCreateNestedManyWithoutUserInput;
-
-  @IsOptional()
-  likes: Prisma.LikeCreateNestedManyWithoutUserInput;
 
   @IsOptional()
   @IsString()

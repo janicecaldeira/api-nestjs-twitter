@@ -17,7 +17,7 @@ export class UsersService {
     });
 
     if (existing) {
-      throw new ConflictException('username already exists');
+      throw new ConflictException('Username already exists');
     }
 
     const hashedPassword = await bcrypt.hash(data.password, 10);
@@ -42,7 +42,7 @@ export class UsersService {
     });
 
     if (!user) {
-      throw new NotFoundException();
+      throw new NotFoundException('User not found');
     }
 
     return user;

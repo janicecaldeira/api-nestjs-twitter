@@ -1,25 +1,16 @@
-import { IsString, IsDate, IsNumber, IsOptional } from 'class-validator';
+import { IsString, IsOptional, IsNotEmpty } from 'class-validator';
 
 export class CreateTweetDto {
-  @IsDate()
+  @IsOptional()
   createdAt: Date;
 
-  @IsDate()
+  @IsOptional()
   updatedAt: Date;
 
-  @IsNumber()
-  tweets: number[];
-
-  @IsNumber()
-  User: number[];
-
-  @IsNumber()
   @IsOptional()
   userId: number;
 
-  @IsNumber()
-  likes: number[];
-
+  @IsNotEmpty()
   @IsString()
   text: string;
 }
