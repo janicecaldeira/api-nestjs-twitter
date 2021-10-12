@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { Like } from '@prisma/client';
+import { Body, Controller, Post } from '@nestjs/common';
 import { CreateLikeDto } from './likes.dto';
 import { LikesService } from './likes.service';
 
@@ -15,6 +6,8 @@ import { LikesService } from './likes.service';
 export class LikesController {
   constructor(private service: LikesService) {}
 
-  @Post
-
+  @Post('/')
+  create(@Body() addLike: CreateLikeDto) {
+    return this.service.create(addLike);
+  }
 }
