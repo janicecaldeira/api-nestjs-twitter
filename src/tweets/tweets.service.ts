@@ -12,12 +12,18 @@ export class TweetsService {
       data,
       include: {
         User: true,
+        likes: true,
       },
     });
   }
 
   async findAll(): Promise<Tweet[]> {
-    return this.db.tweet.findMany();
+    return this.db.tweet.findMany({
+      include: {
+        User: true,
+        likes: true,
+      },
+    });
   }
 
   async findOne(id: number): Promise<Tweet> {

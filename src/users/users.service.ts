@@ -33,7 +33,13 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.db.user.findMany();
+    return this.db.user.findMany({
+      include: {
+        tweets: true,
+        follows: true,
+        likes: true,
+      },
+    });
   }
 
   async findOne(username: string): Promise<User> {
