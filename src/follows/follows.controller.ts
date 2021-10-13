@@ -16,12 +16,12 @@ export class FollowsController {
   constructor(private service: FollowsService) {}
 
   @Post('/')
-  follow(@Body() follow: CreateFollowDto) {
-    return this.service.follow(follow);
+  create(@Body() follow: CreateFollowDto) {
+    return this.service.create(follow);
   }
 
   @Delete('/unfollow/:id')
-  unfollow(@Param('id') id: number) {
-    return this.service.unfollow(id);
+  delete(@Param('id') id: number) {
+    return this.service.delete(id);
   }
 }

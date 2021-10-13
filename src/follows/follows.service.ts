@@ -7,7 +7,7 @@ import { CreateFollowDto } from './follows.dto';
 export class FollowsService {
   constructor(private db: PrismaService) {}
 
-  async follow(data: CreateFollowDto): Promise<Follow> {
+  async create(data: CreateFollowDto): Promise<Follow> {
     return this.db.follow.create({
       data,
       include: {
@@ -16,7 +16,7 @@ export class FollowsService {
     });
   }
 
-  async unfollow(id: number): Promise<Follow> {
+  async delete(id: number): Promise<Follow> {
     return this.db.follow.delete({
       where: { id },
     });
