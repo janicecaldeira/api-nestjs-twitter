@@ -15,4 +15,10 @@ export class LikesService {
       },
     });
   }
+
+  async delete(id: number): Promise<Like> {
+    return this.db.like.delete({
+      where: { id },
+    });
+  }
 }
