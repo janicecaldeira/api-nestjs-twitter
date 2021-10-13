@@ -1,4 +1,4 @@
-import { Injectable, ConflictException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Like } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { CreateLikeDto } from './likes.dto';
