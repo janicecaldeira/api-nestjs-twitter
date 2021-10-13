@@ -13,7 +13,9 @@ export class LikesService {
     });
 
     if (existingLike) {
-      throw new ConflictException('Like already exists');
+      await this.db.like.delete({
+        where: { id: data.tweetId },
+      });
     }
 
     return this.db.like.create({
