@@ -20,7 +20,7 @@ export class FollowsController {
     return this.service.follow(follow);
   }
 
-  @Delete('/delete/:id')
+  @Delete('/unfollow/:id')
   unfollow(@Param('id') id: number) {
     return this.service.unfollow(id);
   }
