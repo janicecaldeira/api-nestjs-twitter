@@ -16,9 +16,16 @@ export class LikesService {
     });
   }
 
-  async delete(id: number): Promise<Like> {
-    return this.db.like.delete({
+  async update(id: number): Promise<Like> {
+    const existingLike = await this.db.like.findUnique({
       where: { id },
     });
+
+    if (existingLike) {
+      return this.db.like.delete({
+        where: { id },
+      });
+    }
+    console.log(existingLike);
   }
 }
